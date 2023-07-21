@@ -12,5 +12,6 @@ public class ApplicationDbContext : DbContext
     public DbSet<WeatherForecast> WeatherForecasts { get; set; }
     public DbSet<UserModel> Users { get; set; }
     public DbSet<UserWeightModel> UserWeightsLogs { get; set; }
+    public DbSet<CheatMealModel> CheatMeals { get; set; }
 }
 
