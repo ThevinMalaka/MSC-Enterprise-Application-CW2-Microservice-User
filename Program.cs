@@ -9,11 +9,14 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
-var app = builder.Build();
+
 
 // Database
 builder.Services.AddDbContext<ApplicationDbContext>(options =>
        options.UseMySQL(builder.Configuration.GetConnectionString("DefaultConnection")));
+
+
+var app = builder.Build();
 
 app.UseSwagger();
 app.UseSwaggerUI();
@@ -21,8 +24,8 @@ app.UseSwaggerUI();
 // Configure the HTTP request pipeline.
 //if (app.Environment.IsDevelopment())
 //{
-//    app.UseSwagger();
-//    app.UseSwaggerUI();
+//app.UseSwagger();
+//app.UseSwaggerUI();
 //}
 
 app.UseHttpsRedirection();
