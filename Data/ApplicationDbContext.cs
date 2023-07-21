@@ -1,17 +1,7 @@
-﻿//using System;
-//namespace userService.Data
-//{
-//	public class ApplicationDbContext
-//	{
-//		public ApplicationDbContext()
-//		{
-//		}
-//	}
-//}
-
-
+﻿
 using Microsoft.EntityFrameworkCore;
 using userService;
+using userService.Entities;
 
 public class ApplicationDbContext : DbContext
 {
@@ -20,5 +10,7 @@ public class ApplicationDbContext : DbContext
     }
 
     public DbSet<WeatherForecast> WeatherForecasts { get; set; }
+    public DbSet<UserModel> Users { get; set; }
+    public DbSet<UserWeightModel> UserWeightsLogs { get; set; }
 }
 
