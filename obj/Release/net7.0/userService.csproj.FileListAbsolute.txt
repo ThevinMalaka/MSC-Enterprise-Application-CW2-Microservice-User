@@ -63,3 +63,10 @@
 /Users/thevinm/Documents/Thevin/MSC-Course-Work/5. Enterprise Application Development - 7SENG001C.3 /CW2/projects/courseworkBackend/userService/obj/Release/net7.0/userService.pdb
 /Users/thevinm/Documents/Thevin/MSC-Course-Work/5. Enterprise Application Development - 7SENG001C.3 /CW2/projects/courseworkBackend/userService/obj/Release/net7.0/userService.genruntimeconfig.cache
 /Users/thevinm/Documents/Thevin/MSC-Course-Work/5. Enterprise Application Development - 7SENG001C.3 /CW2/projects/courseworkBackend/userService/obj/Release/net7.0/ref/userService.dll
+/Users/thevinm/Documents/Thevin/MSC-Course-Work/5. Enterprise Application Development - 7SENG001C.3 /CW2/projects/courseworkBackend/userService/bin/Release/net7.0/Microsoft.AspNetCore.Authentication.JwtBearer.dll
+/Users/thevinm/Documents/Thevin/MSC-Course-Work/5. Enterprise Application Development - 7SENG001C.3 /CW2/projects/courseworkBackend/userService/bin/Release/net7.0/Microsoft.IdentityModel.JsonWebTokens.dll
+/Users/thevinm/Documents/Thevin/MSC-Course-Work/5. Enterprise Application Development - 7SENG001C.3 /CW2/projects/courseworkBackend/userService/bin/Release/net7.0/Microsoft.IdentityModel.Logging.dll
+/Users/thevinm/Documents/Thevin/MSC-Course-Work/5. Enterprise Application Development - 7SENG001C.3 /CW2/projects/courseworkBackend/userService/bin/Release/net7.0/Microsoft.IdentityModel.Protocols.dll
+/Users/thevinm/Documents/Thevin/MSC-Course-Work/5. Enterprise Application Development - 7SENG001C.3 /CW2/projects/courseworkBackend/userService/bin/Release/net7.0/Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
+/Users/thevinm/Documents/Thevin/MSC-Course-Work/5. Enterprise Application Development - 7SENG001C.3 /CW2/projects/courseworkBackend/userService/bin/Release/net7.0/Microsoft.IdentityModel.Tokens.dll
+/Users/thevinm/Documents/Thevin/MSC-Course-Work/5. Enterprise Application Development - 7SENG001C.3 /CW2/projects/courseworkBackend/userService/bin/Release/net7.0/System.IdentityModel.Tokens.Jwt.dll

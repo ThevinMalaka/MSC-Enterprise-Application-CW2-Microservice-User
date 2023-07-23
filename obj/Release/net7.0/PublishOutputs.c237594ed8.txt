@@ -8,10 +8,16 @@
 /Users/thevinm/Documents/Thevin/MSC-Course-Work/5. Enterprise Application Development - 7SENG001C.3 /CW2/projects/courseworkBackend/userService/obj/Release/net7.0/PubTmp/Out/K4os.Compression.LZ4.dll
 /Users/thevinm/Documents/Thevin/MSC-Course-Work/5. Enterprise Application Development - 7SENG001C.3 /CW2/projects/courseworkBackend/userService/obj/Release/net7.0/PubTmp/Out/K4os.Compression.LZ4.Streams.dll
 /Users/thevinm/Documents/Thevin/MSC-Course-Work/5. Enterprise Application Development - 7SENG001C.3 /CW2/projects/courseworkBackend/userService/obj/Release/net7.0/PubTmp/Out/K4os.Hash.xxHash.dll
+/Users/thevinm/Documents/Thevin/MSC-Course-Work/5. Enterprise Application Development - 7SENG001C.3 /CW2/projects/courseworkBackend/userService/obj/Release/net7.0/PubTmp/Out/Microsoft.AspNetCore.Authentication.JwtBearer.dll
 /Users/thevinm/Documents/Thevin/MSC-Course-Work/5. Enterprise Application Development - 7SENG001C.3 /CW2/projects/courseworkBackend/userService/obj/Release/net7.0/PubTmp/Out/Microsoft.AspNetCore.OpenApi.dll
 /Users/thevinm/Documents/Thevin/MSC-Course-Work/5. Enterprise Application Development - 7SENG001C.3 /CW2/projects/courseworkBackend/userService/obj/Release/net7.0/PubTmp/Out/Microsoft.EntityFrameworkCore.dll
 /Users/thevinm/Documents/Thevin/MSC-Course-Work/5. Enterprise Application Development - 7SENG001C.3 /CW2/projects/courseworkBackend/userService/obj/Release/net7.0/PubTmp/Out/Microsoft.EntityFrameworkCore.Abstractions.dll
 /Users/thevinm/Documents/Thevin/MSC-Course-Work/5. Enterprise Application Development - 7SENG001C.3 /CW2/projects/courseworkBackend/userService/obj/Release/net7.0/PubTmp/Out/Microsoft.EntityFrameworkCore.Relational.dll
+/Users/thevinm/Documents/Thevin/MSC-Course-Work/5. Enterprise Application Development - 7SENG001C.3 /CW2/projects/courseworkBackend/userService/obj/Release/net7.0/PubTmp/Out/Microsoft.IdentityModel.JsonWebTokens.dll
+/Users/thevinm/Documents/Thevin/MSC-Course-Work/5. Enterprise Application Development - 7SENG001C.3 /CW2/projects/courseworkBackend/userService/obj/Release/net7.0/PubTmp/Out/Microsoft.IdentityModel.Logging.dll
+/Users/thevinm/Documents/Thevin/MSC-Course-Work/5. Enterprise Application Development - 7SENG001C.3 /CW2/projects/courseworkBackend/userService/obj/Release/net7.0/PubTmp/Out/Microsoft.IdentityModel.Protocols.dll
+/Users/thevinm/Documents/Thevin/MSC-Course-Work/5. Enterprise Application Development - 7SENG001C.3 /CW2/projects/courseworkBackend/userService/obj/Release/net7.0/PubTmp/Out/Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
+/Users/thevinm/Documents/Thevin/MSC-Course-Work/5. Enterprise Application Development - 7SENG001C.3 /CW2/projects/courseworkBackend/userService/obj/Release/net7.0/PubTmp/Out/Microsoft.IdentityModel.Tokens.dll
 /Users/thevinm/Documents/Thevin/MSC-Course-Work/5. Enterprise Application Development - 7SENG001C.3 /CW2/projects/courseworkBackend/userService/obj/Release/net7.0/PubTmp/Out/Microsoft.OpenApi.dll
 /Users/thevinm/Documents/Thevin/MSC-Course-Work/5. Enterprise Application Development - 7SENG001C.3 /CW2/projects/courseworkBackend/userService/obj/Release/net7.0/PubTmp/Out/Microsoft.Win32.SystemEvents.dll
 /Users/thevinm/Documents/Thevin/MSC-Course-Work/5. Enterprise Application Development - 7SENG001C.3 /CW2/projects/courseworkBackend/userService/obj/Release/net7.0/PubTmp/Out/MySql.Data.dll
@@ -22,6 +28,7 @@
 /Users/thevinm/Documents/Thevin/MSC-Course-Work/5. Enterprise Application Development - 7SENG001C.3 /CW2/projects/courseworkBackend/userService/obj/Release/net7.0/PubTmp/Out/Swashbuckle.AspNetCore.SwaggerUI.dll
 /Users/thevinm/Documents/Thevin/MSC-Course-Work/5. Enterprise Application Development - 7SENG001C.3 /CW2/projects/courseworkBackend/userService/obj/Release/net7.0/PubTmp/Out/System.Configuration.ConfigurationManager.dll
 /Users/thevinm/Documents/Thevin/MSC-Course-Work/5. Enterprise Application Development - 7SENG001C.3 /CW2/projects/courseworkBackend/userService/obj/Release/net7.0/PubTmp/Out/System.Drawing.Common.dll
+/Users/thevinm/Documents/Thevin/MSC-Course-Work/5. Enterprise Application Development - 7SENG001C.3 /CW2/projects/courseworkBackend/userService/obj/Release/net7.0/PubTmp/Out/System.IdentityModel.Tokens.Jwt.dll
 /Users/thevinm/Documents/Thevin/MSC-Course-Work/5. Enterprise Application Development - 7SENG001C.3 /CW2/projects/courseworkBackend/userService/obj/Release/net7.0/PubTmp/Out/System.Security.Cryptography.ProtectedData.dll
 /Users/thevinm/Documents/Thevin/MSC-Course-Work/5. Enterprise Application Development - 7SENG001C.3 /CW2/projects/courseworkBackend/userService/obj/Release/net7.0/PubTmp/Out/System.Security.Permissions.dll
 /Users/thevinm/Documents/Thevin/MSC-Course-Work/5. Enterprise Application Development - 7SENG001C.3 /CW2/projects/courseworkBackend/userService/obj/Release/net7.0/PubTmp/Out/System.Windows.Extensions.dll

@@ -10,6 +10,7 @@ namespace userService.Entities
         public string Calories { get; set; }
         public string Description { get; set; }
         public string Type { get; set; }
+        public DateTime Date { get; set; }
 
         public UserModel User { get; set; }
 

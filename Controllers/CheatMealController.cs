@@ -4,8 +4,10 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using userService.DTO;
 using userService.Entities;
 using userService.Services;
+using static System.Runtime.InteropServices.JavaScript.JSType;
 
 // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
@@ -37,9 +39,17 @@ namespace userService.Controllers
 
         // POST: api/CheatMeals
         [HttpPost]
-        public async Task<ActionResult<CheatMealModel>> CreateCheatMeal([FromBody] CheatMealModel cheatMeal)
+        public async Task<ActionResult<CheatMealModel>> CreateCheatMeal([FromBody] CheatMealCreationDTO cheatMeal)
         {
-            var createdCheatMeal = await _cheatMealService.CreateCheatMealAsync(cheatMeal);
+            var createdCheatMeal = await _cheatMealService.CreateCheatMealAsync(new CheatMealModel
+            {
+                Name = cheatMeal.Name,
+                Calories = cheatMeal.Calories,
+                Description = cheatMeal.Description,
+                Type = cheatMeal.Type,
+                Date = cheatMeal.Date,
+                UserId = cheatMeal.UserId
+            });
             return CreatedAtAction(nameof(GetCheatMealById), new { id = createdCheatMeal.Id }, createdCheatMeal);
         }
 

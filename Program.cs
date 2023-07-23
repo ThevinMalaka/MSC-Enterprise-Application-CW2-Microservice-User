@@ -17,8 +17,12 @@ builder.Services.AddSwaggerGen();
 builder.Services.AddDbContext<ApplicationDbContext>(options =>
        options.UseMySQL(builder.Configuration.GetConnectionString("DefaultConnection")));
 
+
 // Add Services
 builder.Services.AddScoped<CheatMealService>();
+builder.Services.AddScoped<UserService>();
+builder.Services.AddScoped<UserWeightService>();
+
 
 // Add JWT authentication services
 builder.Services
