@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using userService.Entities;
@@ -21,6 +22,7 @@ namespace userService.Controllers
         }
 
         [HttpGet("{id}")]
+        [Authorize]
         public async Task<ActionResult<UserWeightModel>> GetUserWeight(int id)
         {
             var userWeight = await _userWeightService.GetUserWeight(id);
@@ -34,6 +36,7 @@ namespace userService.Controllers
         }
 
         [HttpGet("all/{id}")]
+        [Authorize]
         public async Task<ActionResult<IEnumerable<UserWeightModel>>> GetAllUserWeights(int id)
         {
             var userWeights = await _userWeightService.GetAllUserWeights(id);
@@ -47,6 +50,7 @@ namespace userService.Controllers
         }
 
         [HttpGet("latestWeight/{id}")]
+        //[Authorize]
         public async Task<IActionResult> GetLatestWeightAsync(int id)
         {
             var latestWeight = await _userWeightService.GetLatestWeightLogAsync(id);
@@ -62,6 +66,7 @@ namespace userService.Controllers
         }
 
         [HttpPut("{id}")]
+        [Authorize]
         public async Task<IActionResult> PutUserWeight(int id, UserWeightModel userWeight)
         {
             bool result = await _userWeightService.UpdateUserWeight(id, userWeight);
@@ -75,6 +80,7 @@ namespace userService.Controllers
         }
 
         [HttpPost]
+        [Authorize]
         public async Task<IActionResult> PostUserWeight([FromBody] UserWeightModel userWeight)
         {
             var newUserWeight = await _userWeightService.CreateUserWeight(userWeight);
@@ -83,6 +89,7 @@ namespace userService.Controllers
         }
 
         [HttpDelete("{id}")]
+        [Authorize]
         public async Task<IActionResult> DeleteUserWeight(int id)
         {
             var result = await _userWeightService.DeleteUserWeight(id);

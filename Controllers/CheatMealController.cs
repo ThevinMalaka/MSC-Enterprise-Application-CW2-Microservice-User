@@ -25,6 +25,7 @@ namespace userService.Controllers
 
         // GET: api/CheatMeals/5
         [HttpGet("{id}")]
+        [Authorize]
         public async Task<IActionResult> GetCheatMealById(int id)
         {
             var cheatMeal = await _cheatMealService.GetCheatMealByIdAsync(id);
@@ -39,6 +40,7 @@ namespace userService.Controllers
 
         // POST: api/CheatMeals
         [HttpPost]
+        [Authorize]
         public async Task<ActionResult<CheatMealModel>> CreateCheatMeal([FromBody] CheatMealCreationDTO cheatMeal)
         {
             var createdCheatMeal = await _cheatMealService.CreateCheatMealAsync(new CheatMealModel
@@ -55,6 +57,7 @@ namespace userService.Controllers
 
         // PUT: api/CheatMeals/5
         [HttpPut("{id}")]
+        [Authorize]
         public async Task<IActionResult> UpdateCheatMeal(int id, [FromBody] CheatMealModel cheatMeal)
         {
             if (id != cheatMeal.Id)
