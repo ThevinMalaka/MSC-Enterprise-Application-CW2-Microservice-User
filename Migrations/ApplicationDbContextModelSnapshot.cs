@@ -107,26 +107,6 @@ namespace userService.Migrations
                     b.ToTable("UserWeightsLogs");
                 });
 
-            modelBuilder.Entity("userService.WeatherForecast", b =>
-                {
-                    b.Property<string>("Id")
-                        .HasColumnType("varchar(255)");
-
-                    b.Property<DateTime>("Date")
-                        .HasColumnType("datetime(6)");
-
-                    b.Property<string>("Summary")
-                        .IsRequired()
-                        .HasColumnType("longtext");
-
-                    b.Property<int>("TemperatureC")
-                        .HasColumnType("int");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("WeatherForecasts");
-                });
-
             modelBuilder.Entity("userService.Entities.CheatMealModel", b =>
                 {
                     b.HasOne("userService.Entities.UserModel", "User")
