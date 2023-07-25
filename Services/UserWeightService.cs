@@ -114,8 +114,7 @@ namespace userService.Services
                 };
             }
 
-            // Handle the case where there are no weight logs for the user. 
-            // You may want to throw an exception or return null.
+            // Handle the case where there are no weight logs for the user.
             return null;
         }
 

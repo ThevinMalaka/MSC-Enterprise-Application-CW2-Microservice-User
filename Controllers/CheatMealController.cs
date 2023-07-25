@@ -69,13 +69,6 @@ namespace userService.Controllers
             return NoContent();
         }
 
-        // DELETE: api/CheatMeals/5
-        //[HttpDelete("{id}")]
-        //public async Task<IActionResult> DeleteCheatMeal(int id)
-        //{
-        //    await _cheatMealService.DeleteCheatMealAsync(id);
-        //    return NoContent();
-        //}
     }
 }
 

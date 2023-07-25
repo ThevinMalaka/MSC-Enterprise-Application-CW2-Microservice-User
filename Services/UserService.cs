@@ -23,11 +23,12 @@ namespace userService.Services
 
         public async Task<UserModel> CreateAsync(UserRegistrationDTO user)
         {
-            //var existingUser = await _context.Users.FirstOrDefaultAsync(u => u.Email == user.Email);
-            //if (existingUser != null)
-            //{
-            //    return null;
-            //}
+
+            // Check if user already exists
+            if (_context.Users.Any(u => u.Email == user.Email))
+            {
+                throw new ArgumentException("User already exists");
+            }
 
             var newUser = new UserModel
             {
