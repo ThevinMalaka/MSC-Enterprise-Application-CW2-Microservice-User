@@ -7,6 +7,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Xml.Serialization;
 using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
@@ -24,6 +25,12 @@ namespace userService.Controllers
         private readonly UserService _userService;
         private readonly UserWeightService _userWeightService;
         private readonly ApplicationDbContext _context;
+
+        private const string LogFilePath = "Logs/UserLoginLogs.xml";
+        private const string FailedLoginFilePath = "Logs/FailedLoginLogs.xml";
+
+        private XmlSerializer _loginLogSerializer = new XmlSerializer(typeof(List<UserLoginLog>));
+        private XmlSerializer _failedLogSerializer = new XmlSerializer(typeof(List<UserLoginFailedLog>));
 
         public UserController(UserService userService, UserWeightService userWeightService, ApplicationDbContext context)
         {
@@ -58,50 +65,144 @@ namespace userService.Controllers
             UserModel foundUser = _userService.Login(user);
             if (foundUser == null)
             {
+                LogFailedLogin(user.Email); // Log the failed login attempt
                 return NotFound("User not found");
             }
 
             string token = _userService.GenerateJwtToken(foundUser);
+
+            // Log the login event - successful login attempt
+            LogUserLogin(foundUser.Email);
 
             return Ok(new { user = foundUser, token = token });
         }
 
         // Action to get all users
         [HttpGet("all")]
+        [Authorize]
         public IActionResult GetAll()
         {
             var users = _userService.GetAll();
             return Ok(users);
         }
 
-
-        // Get all users data from XML formet
-        [HttpGet("XML")]
-        [Authorize]
-        public string GetAllUserWeightsXML()
+        // Log Successful Login Logs ----------------
+        private void LogUserLogin(string email)
         {
-            var users = _context.Users.ToList();
-            var usersDto = users.Select(user => MapToDTO(user)).ToList();
+            var logs = GetLoginLogs();
 
-            XmlSerializer serializer = new XmlSerializer(typeof(List<UserModelDTO>));
+            // Getting the IP address of the client
+            var ipAddress = HttpContext.Connection.RemoteIpAddress.ToString();
 
-            using StringWriter writer = new StringWriter();
-            serializer.Serialize(writer, usersDto);
+            logs.Add(new UserLoginLog { Email = email, LoginTime = DateTime.UtcNow, IPAddress = ipAddress });
 
-            return writer.ToString();
+            SaveLoginLogs(logs);
         }
 
-        private UserModelDTO MapToDTO(UserModel user)
+        private List<UserLoginLog> GetLoginLogs()
         {
-            return new UserModelDTO
+            EnsureDirectoryExists(LogFilePath);
+
+            if (!System.IO.File.Exists(LogFilePath))
             {
-                Id = user.Id,
-                Name = user.Name,
-                Email = user.Email,
-                Weight = user.Weight,
-                Height = user.Height,
-                DateOfBirth = user.DateOfBirth
+                return new List<UserLoginLog>();
+            }
+            using var reader = new StreamReader(LogFilePath);
+            return (List<UserLoginLog>)_loginLogSerializer.Deserialize(reader);
+        }
+
+        private void SaveLoginLogs(List<UserLoginLog> logs)
+        {
+            EnsureDirectoryExists(LogFilePath);
+
+            using var writer = new StreamWriter(LogFilePath);
+            _loginLogSerializer.Serialize(writer, logs);
+        }
+
+        // Log Successful Login Logs ----------------
+        // Log Failed Attempts Logs -------------------
+        private void LogFailedLogin(string email)
+        {
+            var logs = GetFailedLoginLogs();
+
+            // Getting the IP address of the client
+            var ipAddress = HttpContext.Connection.RemoteIpAddress.ToString();
+
+            logs.Add(new UserLoginFailedLog { AttemptedEmail = email, AttemptTime = DateTime.UtcNow, IPAddress = ipAddress });
+
+            SaveFailedLoginLogs(logs);
+        }
+
+        private List<UserLoginFailedLog> GetFailedLoginLogs()
+        {
+            EnsureDirectoryExists(FailedLoginFilePath);
+
+            if (!System.IO.File.Exists(FailedLoginFilePath))
+            {
+                return new List<UserLoginFailedLog>();
+            }
+            using var reader = new StreamReader(FailedLoginFilePath);
+            return (List<UserLoginFailedLog>)_failedLogSerializer.Deserialize(reader);
+        }
+
+        private void SaveFailedLoginLogs(List<UserLoginFailedLog> logs)
+        {
+            EnsureDirectoryExists(FailedLoginFilePath);
+
+            using var writer = new StreamWriter(FailedLoginFilePath);
+            _failedLogSerializer.Serialize(writer, logs);
+        }
+
+        // Log Failed Attempts Logs -------------------
+
+        // Endpoint to retrieve the login logs
+        [HttpGet("loginLogs")]
+        [Authorize]
+        public IActionResult GetUserLoginLogs()
+        {
+            var logs = GetLoginLogs();
+
+            var xmlSerializer = new XmlSerializer(logs.GetType());
+
+            using var stringWriter = new StringWriter();
+            xmlSerializer.Serialize(stringWriter, logs);
+
+            return new ContentResult
+            {
+                Content = stringWriter.ToString(),
+                ContentType = "application/xml",
+                StatusCode = 200
             };
         }
+
+        [HttpGet("failedLoginLogs")]
+        [Authorize]
+        public IActionResult GetUserFailedLoginLogs()
+        {
+            var logs = GetFailedLoginLogs();
+
+            var xmlSerializer = new XmlSerializer(logs.GetType());
+
+            using var stringWriter = new StringWriter();
+            xmlSerializer.Serialize(stringWriter, logs);
+
+            return new ContentResult
+            {
+                Content = stringWriter.ToString(),
+                ContentType = "application/xml",
+                StatusCode = 200
+            };
+        }
+
+        private void EnsureDirectoryExists(string filePath)
+        {
+            FileInfo fileInfo = new FileInfo(filePath);
+            if (!fileInfo.Directory.Exists)
+            {
+                Directory.CreateDirectory(fileInfo.DirectoryName);
+            }
+        }
+
+
     }
 }

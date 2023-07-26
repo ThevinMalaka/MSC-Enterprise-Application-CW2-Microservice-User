@@ -19,5 +19,19 @@ namespace userService.Entities
         public string Email { get; set; }
         public string Password { get; set; }
     }
+
+    public class UserLoginLog
+    {
+        public string Email { get; set; }
+        public DateTime LoginTime { get; set; }
+        public string IPAddress { get; set; }
+    }
+
+    public class UserLoginFailedLog
+    {
+        public string AttemptedEmail { get; set; }
+        public DateTime AttemptTime { get; set; }
+        public string IPAddress { get; set; }
+    }
 }
 
