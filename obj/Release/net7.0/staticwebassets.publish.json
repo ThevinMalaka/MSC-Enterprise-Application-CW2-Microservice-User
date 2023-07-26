@@ -1,0 +1,11 @@
+{
+  "Version": 1,
+  "Hash": "IXoAAwZSaRk9L+1iNroXDUFYsLLWBkrrbNVCM4RVY+U=",
+  "Source": "userService",
+  "BasePath": "_content/userService",
+  "Mode": "Default",
+  "ManifestType": "Publish",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [],
+  "Assets": []
+}
